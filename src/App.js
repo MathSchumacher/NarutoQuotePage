@@ -35,6 +35,8 @@ function App() {
 
   const playSound = () => {
     if (audioRef.current) {
+      audioRef.current.pause(); // Pausa o som atual
+      audioRef.current.currentTime = 0; // Reinicia o som para o início
       audioRef.current.play().catch(error => {
         console.error('Erro ao reproduzir o som:', error);
       });
